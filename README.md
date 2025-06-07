@@ -44,8 +44,8 @@ Over 75% of resumes are initially screened by Applicant Tracking Systems before 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/resumeats.git
-   cd resumeats
+   git clone [https://github.com/dasundu/ResumeATS.git]
+   cd ats-resume-generator
    ```
 
 2. **Install dependencies**
