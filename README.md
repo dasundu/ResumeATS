@@ -26,7 +26,7 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 ├── app/
 │   ├── globals.css          # Global styles and CSS variables
 │   ├── layout.tsx           # Root layout with theme provider
@@ -52,20 +52,20 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
 │   ├── pdf-generator.ts     # PDF export functionality
 │   └── utils.ts             # Utility functions
 └── tailwind.config.ts       # Tailwind configuration
-\`\`\`
+```
 
 ## 🎯 Core Features Documentation
 
 ### 1. Resume Builder Forms
 
 #### Personal Information Form
-- **File**: \`components/personal-info-form.tsx\`
+- **File**: `components/personal-info-form.tsx`
 - **Purpose**: Collects basic contact information
 - **Fields**: Name, job title, email, phone, location, LinkedIn, GitHub, portfolio
 - **Features**: Real-time validation, clickable links in resume
 
 #### Experience Form
-- **File**: \`components/experience-form.tsx\`
+- **File**: `components/experience-form.tsx`
 - **Purpose**: Manages work experience entries
 - **Features**: 
   - Multiple experience entries
@@ -74,7 +74,7 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
   - Company and location tracking
 
 #### Education Form
-- **File**: \`components/education-form.tsx\`
+- **File**: `components/education-form.tsx`
 - **Purpose**: Educational background management
 - **Features**:
   - Multiple education entries
@@ -83,7 +83,7 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
   - Institution and degree validation
 
 #### Skills Form
-- **File**: \`components/skills-form.tsx\`
+- **File**: `components/skills-form.tsx`
 - **Purpose**: Skill categorization and management
 - **Features**:
   - Multiple skill categories
@@ -92,7 +92,7 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
   - Skill removal and editing
 
 #### Projects Form
-- **File**: \`components/projects-form.tsx\`
+- **File**: `components/projects-form.tsx`
 - **Purpose**: Project showcase management
 - **Features**:
   - Project links (clickable in resume)
@@ -103,7 +103,7 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
 ### 2. Job Description Analysis
 
 #### Keyword Extractor
-- **File**: \`lib/keyword-extractor.ts\`
+- **File**: `lib/keyword-extractor.ts`
 - **Purpose**: Analyzes job descriptions to extract relevant keywords
 - **Algorithm**:
   1. Maintains database of 100+ technical and soft skills
@@ -113,7 +113,7 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
 - **Skills Database**: Includes modern technologies, frameworks, and soft skills
 
 #### Job Description Form
-- **File**: \`components/job-description-form.tsx\`
+- **File**: `components/job-description-form.tsx`
 - **Purpose**: Job description input and analysis
 - **Features**:
   - Large text area for job descriptions
@@ -124,7 +124,7 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
 ### 3. AI-Powered Summary Generation
 
 #### Summary Generator
-- **File**: \`lib/summary-generator.ts\`
+- **File**: `lib/summary-generator.ts`
 - **Purpose**: Creates professional summaries based on user data
 - **Algorithm**:
   1. **Experience Analysis**: Calculates years of experience from date ranges
@@ -134,15 +134,15 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
   5. **Summary Construction**: Creates 3-5 line professional summary
 
 #### Key Functions:
-- \`calculateYearsOfExperience()\`: Parses dates and calculates total experience
-- \`getHighestEducation()\`: Ranks education by level (PhD > Master's > Bachelor's)
-- \`getTopSkills()\`: Prioritizes skills based on keyword matching
-- \`getKeyAchievements()\`: Extracts quantifiable accomplishments
+- `calculateYearsOfExperience()`: Parses dates and calculates total experience
+- `getHighestEducation()`: Ranks education by level (PhD > Master's > Bachelor's)
+- `getTopSkills()`: Prioritizes skills based on keyword matching
+- `getKeyAchievements()`: Extracts quantifiable accomplishments
 
 ### 4. ATS Compatibility Scoring
 
 #### ATS Score Checker
-- **File**: \`lib/ats-score-checker.ts\`
+- **File**: `lib/ats-score-checker.ts`
 - **Purpose**: Evaluates resume ATS compatibility
 - **Scoring Components**:
 
@@ -164,14 +164,14 @@ A modern, professional resume generator that creates ATS-optimized resumes tailo
 - Assesses overall content quality
 
 #### Scoring Algorithm:
-\`\`\`typescript
+```typescript
 Overall Score = (Keyword Score × 0.5) + (Format Score × 0.3) + (Content Score × 0.2)
-\`\`\`
+```
 
 ### 5. PDF Generation
 
 #### PDF Generator
-- **File**: \`lib/pdf-generator.ts\`
+- **File**: `lib/pdf-generator.ts`
 - **Library**: html2pdf.js
 - **Process**:
   1. Clones resume DOM element
@@ -188,12 +188,12 @@ Overall Score = (Keyword Score × 0.5) + (Format Score × 0.3) + (Content Score 
 ### 6. State Management
 
 #### Resume Store
-- **File**: \`lib/resume-store.ts\`
+- **File**: `lib/resume-store.ts`
 - **Library**: Zustand
 - **Purpose**: Centralized state management for all resume data
 
 #### Store Structure:
-\`\`\`typescript
+```typescript
 type ResumeStore = {
   resumeData: ResumeData           // All form data
   generatedSummary: string         // AI-generated summary
@@ -211,30 +211,8 @@ type ResumeStore = {
   generateResume: () => void       // Generates summary and scores
   checkATSCompatibility: () => void // Calculates ATS score
 }
-\`\`\`
+```
 
-## 🎨 Design System
-
-### Color Theme
-The application uses a professional blue color scheme:
-
-- **Primary**: \`hsl(220, 91%, 56%)\` - Professional blue
-- **Primary Foreground**: \`hsl(0, 0%, 100%)\` - White text
-- **Secondary**: \`hsl(210, 40%, 96%)\` - Light blue-gray
-- **Muted**: \`hsl(215, 16%, 47%)\` - Muted text color
-- **Border**: \`hsl(214, 32%, 91%)\` - Light borders
-
-### Typography
-- **Font Family**: Inter (Google Fonts)
-- **Headings**: Bold weights (600-700)
-- **Body Text**: Regular weight (400)
-- **Small Text**: 14px for secondary information
-
-### Layout
-- **Container**: Max width 7xl (1280px)
-- **Spacing**: Consistent 4px grid system
-- **Responsive**: Mobile-first approach
-- **Cards**: Rounded corners with subtle shadows
 
 ## 🔧 Installation & Setup
 
@@ -245,34 +223,34 @@ The application uses a professional blue color scheme:
 ### Installation Steps
 
 1. **Clone the repository**
-\`\`\`bash
+```bash
 git clone https://github.com/yourusername/resume-ats.git
 cd resume-ats
-\`\`\`
+```
 
 2. **Install dependencies**
-\`\`\`bash
+```bash
 npm install
 # or
 yarn install
-\`\`\`
+```
 
 3. **Run development server**
-\`\`\`bash
+```bash
 npm run dev
 # or
 yarn dev
-\`\`\`
+```
 
 4. **Open in browser**
-Navigate to \`http://localhost:3000\`
+Navigate to `http://localhost:3000`
 
 ### Build for Production
 
-\`\`\`bash
+```bash
 npm run build
 npm start
-\`\`\`
+```
 
 ## 📱 Usage Guide
 
@@ -315,7 +293,7 @@ npm start
 ### Step 8: Download
 1. Click "Download PDF" to export your resume
 2. The PDF will include clickable links
-3. File name format: \`[YourName]_ATS_Resume.pdf\`
+3. File name format: `[YourName]_ATS_Resume.pdf`
 
 ## 🧪 Testing
 
@@ -360,30 +338,30 @@ npm start
 ### Vercel Deployment (Recommended)
 
 1. **Connect to Vercel**
-\`\`\`bash
+```bash
 npm i -g vercel
 vercel
-\`\`\`
+```
 
 2. **Configure Environment**
 - No environment variables required for basic functionality
 - All processing happens client-side
 
 3. **Deploy**
-\`\`\`bash
+```bash
 vercel --prod
-\`\`\`
+```
 
 ### Other Platforms
 
 #### Netlify
 1. Connect your GitHub repository
-2. Build command: \`npm run build\`
-3. Publish directory: \`out\` (if using static export)
+2. Build command: `npm run build`
+3. Publish directory: `out` (if using static export)
 
 #### Traditional Hosting
-1. Run \`npm run build\`
-2. Upload the \`.next\` folder and dependencies
+1. Run `npm run build`
+2. Upload the `.next` folder and dependencies
 3. Configure Node.js environment
 
 ## 🔒 Security Considerations
@@ -485,7 +463,7 @@ vercel --prod
 1. **Documentation**: Check this README first
 2. **Issues**: Create GitHub issues for bugs
 3. **Discussions**: Use GitHub Discussions for questions
-4. **Email**: Contact support@resumeats.com
+4. **Email**: Contact dasunathauda99@gmail.com
 
 ### Contributing
 1. Fork the repository
@@ -501,5 +479,4 @@ This project is licensed under the MIT License. See LICENSE file for details.
 
 **Built with ❤️ for job seekers everywhere**
 
-*Last updated: December 2024*
-\`\`\`
+*Last updated: June 2025*
